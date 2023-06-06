@@ -634,6 +634,8 @@ else()
     list(APPEND Open3D_3RDPARTY_HEADER_TARGETS_FROM_SYSTEM Open3D::3rdparty_glew)
 endif()
 
+
+message(STATUS --  ${Open3D_3RDPARTY_PRIVATE_TARGETS} ${Open3D_3RDPARTY_PUBLIC_TARGETS})
 # GLFW
 if(USE_SYSTEM_GLFW)
     open3d_find_package_3rdparty_library(3rdparty_glfw
@@ -641,6 +643,8 @@ if(USE_SYSTEM_GLFW)
         PACKAGE glfw3
         TARGETS glfw
     )
+    message(STATUS --  ${3rdparty_glfw_FOUND})
+
     if(NOT 3rdparty_glfw_FOUND)
         open3d_pkg_config_3rdparty_library(3rdparty_glfw
             HEADER
@@ -693,6 +697,7 @@ if(NOT USE_SYSTEM_GLFW)
 else()
     list(APPEND Open3D_3RDPARTY_HEADER_TARGETS_FROM_SYSTEM Open3D::3rdparty_glfw)
 endif()
+
 if(TARGET Open3D::3rdparty_x11)
     target_link_libraries(3rdparty_glfw INTERFACE Open3D::3rdparty_x11)
 endif()

@@ -1,3 +1,5 @@
+# --------------- PATCH
+set(PATCH_3RD_PARTY_LIBS Open3D::3rdparty_glfw Open3D::3rdparty_opengl)
 add_subdirectory(ManuallyAlignPointCloud)
 
 macro(open3d_add_tool TOOL_NAME)
@@ -11,8 +13,11 @@ macro(open3d_add_tool TOOL_NAME)
     open3d_set_global_properties(${TOOL_NAME})
 endmacro()
 
-open3d_add_tool(ConvertPointCloud)
-open3d_add_tool(GLInfo                  Open3D::3rdparty_opengl Open3D::3rdparty_glfw)
-open3d_add_tool(ManuallyCropGeometry)
-open3d_add_tool(MergeMesh)
-open3d_add_tool(ViewGeometry)
+
+open3d_add_tool(ConvertPointCloud       ${PATCH_3RD_PARTY_LIBS})
+open3d_add_tool(GLInfo                  ${PATCH_3RD_PARTY_LIBS})
+open3d_add_tool(ManuallyCropGeometry    ${PATCH_3RD_PARTY_LIBS})
+open3d_add_tool(MergeMesh               ${PATCH_3RD_PARTY_LIBS})
+open3d_add_tool(ViewGeometry            ${PATCH_3RD_PARTY_LIBS})
+
+# --------------- END-PATCH

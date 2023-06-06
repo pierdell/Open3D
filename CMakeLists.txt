@@ -350,7 +350,7 @@ endif()
 
 # ------------------------------- PATCH
 
-set(CHAPS_OPEN3D_ROOT_INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/Open3D)
+set(CHAPS_OPEN3D_ROOT_INSTALL_DIR Open3D)
 
 # Set installation paths
 set(Open3D_INSTALL_INCLUDE_DIR "${CHAPS_OPEN3D_ROOT_INSTALL_DIR}/include")
@@ -359,6 +359,7 @@ set(Open3D_INSTALL_LIB_DIR "${CHAPS_OPEN3D_ROOT_INSTALL_DIR}/lib")
 # Put resources in */share/
 set(Open3D_INSTALL_RESOURCE_DIR "${CHAPS_OPEN3D_ROOT_INSTALL_DIR}/share")
 set(Open3D_INSTALL_CMAKE_DIR "${CHAPS_OPEN3D_ROOT_INSTALL_DIR}/cmake/${PROJECT_NAME}")
+
 
 # ------------------------------- END-PATCH
 

@@ -7,9 +7,20 @@ endif()
 include(CMakeFindDependencyMacro)
 include(FindPackageHandleStandardArgs)
 
+# ------------ PATCH
+# Patch which resets the prefix dir to the install dir
+# Open3D is designed to have an installation dir install/include, and not install/Open3D/include
+
+set(_OLD_PREFIX ${PACKAGE_PREFIX_DIR})
+
 foreach(dep IN ITEMS @Open3D_3RDPARTY_EXTERNAL_MODULES@)
     find_dependency(${dep})
 endforeach()
+
+set(PACKAGE_PREFIX_DIR ${_OLD_PREFIX})
+
+
+# ------------ END PATCH
 
 include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@Targets.cmake")
 
